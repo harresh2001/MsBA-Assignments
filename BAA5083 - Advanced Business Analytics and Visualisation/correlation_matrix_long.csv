@@ -1,0 +1,50 @@
+Variable1,Variable2,Correlation
+SeniorCitizen,SeniorCitizen,1
+tenure,SeniorCitizen,0.016566878
+MonthlyCharges,SeniorCitizen,0.220173339
+TotalCharges,SeniorCitizen,0.102410605
+Churn Value,SeniorCitizen,0.150889328
+Churn Score,SeniorCitizen,0.102180815
+CLTV,SeniorCitizen,-0.003167032
+SeniorCitizen,tenure,0.016566878
+tenure,tenure,1
+MonthlyCharges,tenure,0.247899856
+TotalCharges,tenure,0.825880461
+Churn Value,tenure,-0.35222867
+Churn Score,tenure,-0.224986854
+CLTV,tenure,0.39640568
+SeniorCitizen,MonthlyCharges,0.220173339
+tenure,MonthlyCharges,0.247899856
+MonthlyCharges,MonthlyCharges,1
+TotalCharges,MonthlyCharges,0.651064803
+Churn Value,MonthlyCharges,0.193356422
+Churn Score,MonthlyCharges,0.133754061
+CLTV,MonthlyCharges,0.09869321
+SeniorCitizen,TotalCharges,0.102410605
+tenure,TotalCharges,0.825880461
+MonthlyCharges,TotalCharges,0.651064803
+TotalCharges,TotalCharges,1
+Churn Value,TotalCharges,-0.199484084
+Churn Score,TotalCharges,-0.124312246
+CLTV,TotalCharges,0.341837186
+SeniorCitizen,Churn Value,0.150889328
+tenure,Churn Value,-0.35222867
+MonthlyCharges,Churn Value,0.193356422
+TotalCharges,Churn Value,-0.199484084
+Churn Value,Churn Value,1
+Churn Score,Churn Value,0.664897031
+CLTV,Churn Value,-0.127463102
+SeniorCitizen,Churn Score,0.102180815
+tenure,Churn Score,-0.224986854
+MonthlyCharges,Churn Score,0.133754061
+TotalCharges,Churn Score,-0.124312246
+Churn Value,Churn Score,0.664897031
+Churn Score,Churn Score,1
+CLTV,Churn Score,-0.079782189
+SeniorCitizen,CLTV,-0.003167032
+tenure,CLTV,0.39640568
+MonthlyCharges,CLTV,0.09869321
+TotalCharges,CLTV,0.341837186
+Churn Value,CLTV,-0.127463102
+Churn Score,CLTV,-0.079782189
+CLTV,CLTV,1

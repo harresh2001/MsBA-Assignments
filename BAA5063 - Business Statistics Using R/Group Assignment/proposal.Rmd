@@ -1,0 +1,102 @@
+---
+title: "Business Statistics Using R - Group Assignment (Proposal)"
+author: |
+  Abdul Hakim Bin Kamalur Rahman (24015257)  
+  Annabel Ching Ke Xin (24002685)  
+  Divani A/P Arumugam (19058908)  
+  Harresh A/L Ragunathan (19076090)  
+  Lai Woei Harng (20003158)
+date: "2024-12-16"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# i. Narrative
+## Research Question
+How do structural, condition, and environmental factors influence housing prices, and can the inclusion of interaction terms enhance the accuracy of prediction models for the housing market?
+
+## Introduction
+Housing prices are central to both individual financial stability and broader economic growth. Homes serve as a foundational asset, influencing financial well-being and market trends (Yao & Feng, 2023). Rapid price fluctuations, as seen in Auckland's rise in the house price-to-income ratio from 6.4 in 2010 to 10.0 in 2016, highlight the profound impact of housing markets on personal finances and national economies (Greenaway-McGrevy & Phillips, 2021). 
+ 
+Traditionally, housing price determination relies on economic indicators such as employment levels and interest rates (Rico-Juan & Taltavull de La Paz, 2021). However, these fail to account for the complexity of housing markets, which are also shaped by sociodemographic dynamics and subtle factors like linguistic choices in real estate advertisements (Markowitz, 2023). While tools like the House Price Index (HPI) track pricing trends, they are limited by external shocks such as the COVID-19 pandemic and data inconsistencies (Aliefendioğlu et al., 2022; Sipan et al., 2018). 
+ 
+Machine learning offers a solution by capturing complex patterns in housing data, outperforming traditional models in predictive accuracy (Fang, 2023). This research explores how structural, condition, and environmental factors drive housing prices and evaluates whether interaction terms improve machine learning models for prediction.
+
+## Research Questions
+1. How do structural factors such as house area, number of bedrooms, bathrooms, stories and the availability of guestroom, basement and parking space influence the market price of a property? 
+2. How do house condition factors such as hot water heating, air conditioning and furnishing status impact housing prices? 
+3. What is the effect of environmental factors, including proximity to main roads and location in preferred areas on the market value of a property? 
+4. How do interaction terms improve the accuracy of housing price prediction models?
+
+## Research Objectives
+1. To examine the influence of structural factors including house area, number of bedrooms, bathrooms, stories and the availability of a guestroom, basement and parking space on the market price of a property. 
+2. To assess the impact of house condition factors such as hot water heating, air conditioning and furnishing status on housing prices. 
+3. To analyze the effect of environmental factors such as proximity to main roads and location in preferred areas on the market value of a property. 
+4. To evaluate the effectiveness of interaction terms in enhancing the accuracy of housing price prediction models.
+
+## Motivation of Research
+Accurate housing price predictions are critical in a volatile real estate market. Developers face rising construction costs and financial risks, while buyers and sellers struggle to navigate market dynamics (Khalid et al., 2018). Mismanagement often leads to abandoned projects, financial losses, and diminished market credibility (Mac-Barango, 2017). Buyers overpay due to insufficient market knowledge, and sellers risk pricing their properties uncompetitively (Wanjiku et al., 2021; Muñoz & Cueto, 2017). 
+
+This research addresses these challenges by developing advanced prediction models, enabling developers, agents, and buyers to make data-driven decisions and improve financial sustainability.
+
+## Business-related dataset
+The housing price dataset includes 545 observations and 13 columns, each representing a distinct property and its associated characteristics. This dataset focuses on structural, condition, and environmental factors influencing housing prices. These factors provide insights into the dynamics of real estate valuation and aid in building robust prediction models for housing markets. 
+
+URL: https://www.kaggle.com/datasets/yasserh/housing-prices-dataset/data
+
+## Description of variables
+The dataset captures a mix of numeric, categorical, and binary variables that describe each property's physical attributes, location, and additional features.
+
+```{r, echo=FALSE}
+library(knitr)
+
+# Create the table as a data frame
+variable_table <- data.frame(
+  `Variable Name` = c("area", "bedrooms", "bathrooms", "stories", "main road", "guestroom", "basement", "hot water heating", "air conditioning", "parking", "preferarea", "furnishing status", "price"),
+  `Description` = c(
+    "The size of the house in square feet",
+    "The number of bedrooms",
+    "The number of bathrooms",
+    "The number of stories",
+    "The location of the house, whether it is on the main road (yes, no)",
+    "Whether there is a guest room (yes, no)",
+    "Whether there is a basement (yes, no)",
+    "Whether there is hot water heating (yes, no)",
+    "Whether there is air conditioning (yes, no)",
+    "The number of parking spaces",
+    "Whether it is in a preferred area (yes, no)",
+    "The furnishing status (furnished, semi-furnished, unfurnished)",
+    "The price of the house"
+  ),
+  `Data Type` = c("Numeric", "Numeric", "Numeric", "Numeric", "Binary", "Binary", "Binary", "Binary", "Binary", "Numeric","Binary", "Categorical", "Numeric")
+)
+
+# Render the table
+kable(variable_table,
+      caption = "Table: Description of Variables", 
+      col.names = c("Variable Name", "Description", "Data Type")
+      )
+```
+
+## Original Data Collection
+The original curator collected the data from real estate transaction records and property listings. These sources typically include: 
+
+1. **Transaction Data**: Housing price data was likely sourced from public and private records, reflecting the finalized sale prices of properties within specific timeframes. 
+2. **Real Estate Listings**: Details like area, number of bedrooms, bathrooms, and features such as basement or air conditioning were extracted from property advertisements maintained by developers and real estate agents. 
+3. **Geographical Information**: Environmental factors such as proximity to main roads and preferred areas were derived from geospatial data or manually annotated based on neighborhood desirability. 
+4. **Developer or Agent Contributions**: Input from housing developers and agents provided additional context, such as furnishing status and amenities. 
+
+The combination of these data sources ensures that the dataset comprehensively represents the housing market while capturing the key factors affecting property valuation.
+
+# ii. The Data
+```{r load-data, include=FALSE}
+# Load the dataset
+df <- read.csv("data/Housing.csv")
+```
+
+```{r data_structure, include=TRUE}
+str(df)
+```
